@@ -10,7 +10,25 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(" xd ");
+           List <int> Numbers = new List<int> {1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            for (int i = 0; i < Numbers.Count; i++)
+            {
+                if (Numbers[i] % 2 == 0)
+                {
+            
+                    Numbers.RemoveAt(i);
+                    
+                    
+
+                }
+            }
+          for (int n =  0; n < Numbers.Count; n++)
+            {
+                Console.Write("  " + Numbers[n]);
+            }
+            Console.ReadKey();
+
         }
     }
 }
