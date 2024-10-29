@@ -44,6 +44,12 @@ namespace вторая_л
                 foreach (var filmss in films)
                 {
                     int genreIndex = (int)filmss.Genre;
+                    if (genreIndex < fixedSales.GetLength(0))
+                    {
+                        int saleCount = fixedSales(genreIndex, day);
+                        salesRepost[films.Genre].totalSales += saleCount;
+                        salesRepost[films.Genre].totalRevenue += films.Price;
+                    }
                     int salesCount = fixedSales[genreIndex, day];
 
                     var currentSalesData = salesRepost[filmss.Genre];
