@@ -20,7 +20,7 @@ namespace вторая_л
             salesRecords.Add(record);
         }
 
-        public void PrintReportAll()
+        public void PrintReportAll() 
         {
             double totalRevenue = 0;
             foreach (var record in salesRecords)
