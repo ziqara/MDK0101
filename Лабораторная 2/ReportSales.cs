@@ -55,7 +55,7 @@ namespace вторая_л
             }
             if (totalRevenue == 0)
             {
-                Console.WriteLine("Введённый жанр фильма не найден.");
+                Console.WriteLine("Выручка по жанру нулевая/Данного жанра не существует");
             }
         }
     }
