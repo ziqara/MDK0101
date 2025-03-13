@@ -25,7 +25,7 @@ namespace FishLR
             List<ProductInfo> foundProducts = SearchProductsByCategory(products, categoryInput);
             if (foundProducts.Count > 0)
             {
-                Console.WriteLine("\nНайденные товары:");
+                Console.WriteLine("Найденные товары:");
                 foreach (var product in foundProducts)
                 {
                     Console.WriteLine($"Название: {product.ProductName}, Цена: {product.PriceProduct}");
@@ -63,9 +63,7 @@ namespace FishLR
 
         public static List<ProductInfo> SearchProductsByCategory(List<ProductInfo> products, string categoryName)
         {
-            categoryName = categoryName.ToLower();
-
-            return products.Where(p => p.Category.ToLower() == categoryName).ToList();
+            return products.Where(p => p.Category == categoryName).ToList();
         }
 
         private static Dictionary<string, double> AveragePricesByCategory(List<ProductInfo> products)
