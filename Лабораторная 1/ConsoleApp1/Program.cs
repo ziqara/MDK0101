@@ -20,6 +20,22 @@ namespace FishLR
                 new ProductInfo { ProductName = "Блесна Blue Fox Vibrax", Category = "Приманки", PriceProduct = 1000 }
             };
 
+            Console.Write("Введите название категории товара: ");
+            string categoryInput = Console.ReadLine();
+            List<ProductInfo> foundProducts = SearchProductsByCategory(products, categoryInput);
+            if (foundProducts.Count > 0)
+            {
+                Console.WriteLine("\nНайденные товары:");
+                foreach (var product in foundProducts)
+                {
+                    Console.WriteLine($"Название: {product.ProductName}, Цена: {product.PriceProduct}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Товары в данной категории не найдены.");
+            }
+
             List<ProductInfo> Products = products;
             Console.WriteLine("Все товары:");
             foreach (var product in Products)
@@ -43,6 +59,13 @@ namespace FishLR
             }
 
             Console.ReadKey();
+        }
+
+        public static List<ProductInfo> SearchProductsByCategory(List<ProductInfo> products, string categoryName)
+        {
+            categoryName = categoryName.ToLower();
+
+            return products.Where(p => p.Category.ToLower() == categoryName).ToList();
         }
 
         private static Dictionary<string, double> AveragePricesByCategory(List<ProductInfo> products)
